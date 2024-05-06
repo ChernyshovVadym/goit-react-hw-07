@@ -1,7 +1,6 @@
 import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
 import { useId } from "react";
-import { nanoid } from "nanoid";
 
 import css from "./ContactForm.module.css";
 
@@ -28,25 +27,12 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    const name = values.name;
-    const number = values.number;
-    // console.log(name, number);
-    dispatch(addContact({ name, number, id: nanoid() }));
+    dispatch(addContact({ name: values.name, number: values.number }));
     actions.resetForm();
   };
   const nameFieldId = useId();
   const numberFieldId = useId();
 
-  // const ContactForm = ({ addContact }) => {
-  //   const handleSubmit = (values, actions) => {
-  //     const newContact = {
-  //       name: values.name,
-  //       number: values.number,
-  //
-  //     };
-  //     addContact(newContact);
-  //     actions.resetForm();
-  //   };
   return (
     <Formik
       initialValues={initionValus}

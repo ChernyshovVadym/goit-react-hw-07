@@ -6,14 +6,14 @@ import { useSelector } from "react-redux";
 import { selectContacts, selectFilters } from "../../redux/selectors";
 
 const ContactList = () => {
-  console.log(selectContacts, selectFilters);
+  // console.log(selectContacts, selectFilters);
   const contacts = useSelector(selectContacts);
   const filters = useSelector(selectFilters);
-  console.log("contacts", contacts);
+  // console.log("contacts", contacts);
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filters.toLowerCase())
   );
-  console.log("visibleContacts", visibleContacts);
+  // console.log("visibleContacts", visibleContacts);
   return (
     <ul className={css.list}>
       {visibleContacts.map((contact) => (
