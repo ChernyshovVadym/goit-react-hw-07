@@ -30,7 +30,7 @@ const ContactForm = () => {
   const handleSubmit = (values, actions) => {
     const name = values.name;
     const number = values.number;
-    console.log(name, number);
+    // console.log(name, number);
     dispatch(addContact({ name, number, id: nanoid() }));
     actions.resetForm();
   };
